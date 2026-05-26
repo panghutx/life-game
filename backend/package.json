@@ -4,11 +4,11 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "npx tsx src/index.ts",
-    "build": "tsc",
+    "build": "npm install --include=dev && npx tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.0",
+    "@supabase/supabase-js": "^2.39.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.0",
@@ -22,6 +22,7 @@
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/uuid": "^10.0.0",
+    "@types/ws": "^8.18.1",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "tsx": "^4.22.3",

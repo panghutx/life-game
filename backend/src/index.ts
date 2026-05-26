@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 dotenv.config();
 
 import authRoutes from './routes/auth';
@@ -25,6 +26,13 @@ app.use('/api/achievements', achievementRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 app.get('/health', (_, res) => res.json({ ok: true }));
+
+// Serve frontend static files
+const frontendPath = path.join(__dirname, '../../frontend/dist');
+app.use(express.static(frontendPath));
+app.get('*', (_, res) => {
+  res.sendFile(path.join(frontendPath, 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

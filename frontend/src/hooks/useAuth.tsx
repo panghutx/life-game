@@ -1,5 +1,5 @@
 // src/hooks/useAuth.ts
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+import { useState, createContext, useContext, ReactNode } from 'react';
 import { authApi, User } from '../api/auth';
 
 interface AuthContextType {
